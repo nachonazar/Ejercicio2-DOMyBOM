@@ -1,4 +1,44 @@
-/*class Persona {
+/*esMayorDeEdad() {
+    if (this.edad >= 18) {
+      return "Es mayor de edad";
+    } else {
+      return "No es mayor de edad";
+    }
+  }
+
+  mostrarDatos() {
+    return `Nombre: ${this.nombre}, Edad: ${this.edad}, DNI: ${this.dni}, Sexo: ${this.sexo}, Peso: ${this.peso}, Altura: ${this.altura}, Año de nacimiento: ${this.nacimiento}`;
+  }
+
+  generaDNI() {
+    this.dni = Math.floor(Math.random() * 90000000) + 10000000;
+  }
+}
+
+/*const nombre = prompt("Ingrese su nombre");
+const edad = prompt("Ingrese su edad");
+const sexo = prompt("Ingrese su sexo");
+const peso = prompt("Ingrese su peso");
+const altura = prompt("Ingrese su altura");
+const nacimiento = prompt("Ingrese su nacimiento");
+
+const persona1 = new Persona(
+  nombre,
+  edad,
+  null,
+  sexo,
+  peso,
+  altura,
+  nacimiento
+);
+
+persona1.generaDNI();
+
+document.writeln(persona1.mostrarDatos());
+document.writeln(persona1.mostrarGeneracion());
+document.writeln(persona1.esMayorDeEdad());*/
+
+class Persona {
   constructor(nombre, edad, dni, sexo, peso, altura, nacimiento) {
     this.nombre = nombre;
     this.edad = edad;
@@ -26,52 +66,36 @@
       return "Generación no registrada 🤷‍♂️";
     }
   }
-
-  esMayorDeEdad() {
-    if (this.edad >= 18) {
-      return "Es mayor de edad";
-    } else {
-      return "No es mayor de edad";
-    }
-  }
-
-  mostrarDatos() {
-    return `Nombre: ${this.nombre}, Edad: ${this.edad}, DNI: ${this.dni}, Sexo: ${this.sexo}, Peso: ${this.peso}, Altura: ${this.altura}, Año de nacimiento: ${this.nacimiento}`;
-  }
-
-  generaDNI() {
-    this.dni = Math.floor(Math.random() * 90000000) + 10000000;
-  }
 }
 
-const nombre = prompt("Ingrese su nombre");
-const edad = prompt("Ingrese su edad");
-const sexo = prompt("Ingrese su sexo");
-const peso = prompt("Ingrese su peso");
-const altura = prompt("Ingrese su altura");
-const nacimiento = prompt("Ingrese su nacimiento");
-
-const persona1 = new Persona(
-  nombre,
-  edad,
-  null,
-  sexo,
-  peso,
-  altura,
-  nacimiento
-);
-
-persona1.generaDNI();
-
-document.writeln(persona1.mostrarDatos());
-document.writeln(persona1.mostrarGeneracion());
-document.writeln(persona1.esMayorDeEdad());*/
+const formulario = document.getElementById("miFormulario");
+const botones = document.getElementById("botones");
+const resultado = document.getElementById("resultado");
+let persona1 = null;
 
 const mostrarBotones = (e) => {
   e.preventDefault();
-  const botones = document.getElementById("botones");
+
+  const nombre = document.getElementById("nombre").value;
+  const edad = document.getElementById("edad").value;
+  const dni = document.getElementById("dni").value;
+  const sexo = document.getElementById("sexo").value;
+  const peso = document.getElementById("peso").value;
+  const altura = document.getElementById("altura").value;
+  const nacimiento = parseInt(document.getElementById("anioNacimiento").value);
+
+  persona1 = new Persona(nombre, edad, dni, sexo, peso, altura, nacimiento);
+
   botones.classList.remove("d-none");
+  document.getElementById("resultado").textContent = "";
 };
 
-const formulario = document.getElementById("miFormulario");
 formulario.addEventListener("submit", mostrarBotones);
+
+document
+  .getElementById("btnMostrarGeneracion")
+  .addEventListener("click", () => {
+    if (persona1) {
+      resultado.textContent = persona1.mostrarGeneracion();
+    }
+  });
