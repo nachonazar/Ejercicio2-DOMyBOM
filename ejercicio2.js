@@ -65,7 +65,13 @@ persona1.generaDNI();
 
 document.writeln(persona1.mostrarDatos());
 document.writeln(persona1.mostrarGeneracion());
-document.writeln(persona1.esMayorDeEdad());
+document.writeln(persona1.esMayorDeEdad());*/
 
-const formulario = document.getElementById("miFormulario")
-formulario.addEventListener("submit")*/
+const mostrarBotones = (e) => {
+  e.preventDefault();
+  const botones = document.getElementById("botones");
+  botones.classList.remove("d-none");
+};
+
+const formulario = document.getElementById("miFormulario");
+formulario.addEventListener("submit", mostrarBotones);
