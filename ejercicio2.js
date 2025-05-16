@@ -1,43 +1,3 @@
-/*esMayorDeEdad() {
-    if (this.edad >= 18) {
-      return "Es mayor de edad";
-    } else {
-      return "No es mayor de edad";
-    }
-  }
-
-  mostrarDatos() {
-    return `Nombre: ${this.nombre}, Edad: ${this.edad}, DNI: ${this.dni}, Sexo: ${this.sexo}, Peso: ${this.peso}, Altura: ${this.altura}, Año de nacimiento: ${this.nacimiento}`;
-  }
-
-  generaDNI() {
-    this.dni = Math.floor(Math.random() * 90000000) + 10000000;
-  }
-}
-
-/*const nombre = prompt("Ingrese su nombre");
-const edad = prompt("Ingrese su edad");
-const sexo = prompt("Ingrese su sexo");
-const peso = prompt("Ingrese su peso");
-const altura = prompt("Ingrese su altura");
-const nacimiento = prompt("Ingrese su nacimiento");
-
-const persona1 = new Persona(
-  nombre,
-  edad,
-  null,
-  sexo,
-  peso,
-  altura,
-  nacimiento
-);
-
-persona1.generaDNI();
-
-document.writeln(persona1.mostrarDatos());
-document.writeln(persona1.mostrarGeneracion());
-document.writeln(persona1.esMayorDeEdad());*/
-
 class Persona {
   constructor(nombre, edad, dni, sexo, peso, altura, nacimiento) {
     this.nombre = nombre;
@@ -65,6 +25,18 @@ class Persona {
     } else {
       return "Generación no registrada 🤷‍♂️";
     }
+  }
+
+  esMayorDeEdad() {
+    if (this.edad >= 18) {
+      return "Es mayor de edad";
+    } else {
+      return "No es mayor de edad";
+    }
+  }
+
+  mostrarDatos() {
+    return `Nombre: ${this.nombre}, Edad: ${this.edad}, DNI: ${this.dni}, Sexo: ${this.sexo}, Peso: ${this.peso}, Altura: ${this.altura}, Año de nacimiento: ${this.nacimiento}`;
   }
 }
 
@@ -96,6 +68,20 @@ document
   .getElementById("btnMostrarGeneracion")
   .addEventListener("click", () => {
     if (persona1) {
-      resultado.textContent = persona1.mostrarGeneracion();
+      resultado.textContent = alert(persona1.mostrarGeneracion());
+    }
+  });
+document
+  .getElementById("btnesMayorDeEdad")
+  .addEventListener("click", () => {
+    if (persona1) {
+      resultado.textContent = alert(persona1.esMayorDeEdad());
+    }
+  });
+  document
+  .getElementById("btnMostrarDatos")
+  .addEventListener("click", () => {
+    if (persona1) {
+      resultado.textContent = alert(persona1.mostrarDatos());
     }
   });
