@@ -36,7 +36,7 @@ class Persona {
   }
 
   mostrarDatos() {
-    return `Nombre: ${this.nombre}, Edad: ${this.edad}, DNI: ${this.dni}, Sexo: ${this.sexo}, Peso: ${this.peso}, Altura: ${this.altura}, Año de nacimiento: ${this.nacimiento}`;
+    return `Nombre: ${this.nombre}, Edad: ${this.edad}, DNI: ${this.dni}, Sexo: ${this.sexo}, Peso: ${this.peso} kg, Altura: ${this.altura} cm, Año de nacimiento: ${this.nacimiento}`;
   }
 }
 
